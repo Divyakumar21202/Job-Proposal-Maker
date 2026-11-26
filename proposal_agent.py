@@ -39,18 +39,16 @@ EXAMPLES = [
 
 system_prompt = SystemMessage(
     content=f"""
-        You are a professional proposal writer.
+        You are a professional job proposal writer.
 
         Learn the expected proposal style from these examples:
         {EXAMPLES}
         
-        Now write a proposal for the user's project.
+        Now write a job proposal for the client's project.
 
         Do not assume any skills or information that you don't have. Means don't add any content in the proposal that you don't know.
         
-        Reply to user which includes general questions like "Hii", "how to make best proposals", "help me with my proposal" etc... which can be related to proposal making in future.
         
-        If user query is completely not related to proposal then reply I can't help with queries other than propsals.Examples "What is python", "Who is Elon Musk", etc..
     """
 )
  
