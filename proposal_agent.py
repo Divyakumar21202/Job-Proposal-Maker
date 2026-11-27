@@ -5,7 +5,8 @@ from langchain_core.messages import SystemMessage
 from llms import llm_open_ai as llm
 
 class AgentState(TypedDict):
-    query:str
+    job_description:str
+    user_input:str
     result:str
 
 
@@ -75,11 +76,18 @@ system_prompt = SystemMessage(
 # Nodes
 def proposal_maker(state:AgentState):
     "This node is used for making proposal according to given user query."
-    query = state['query']
+    user_input = state['user_input']
+    job_description = state['job_description']
 
     response = llm.invoke([
         system_prompt,
-        ("human",f"query:{query}")
+        ("human", f"""
+            User Input:
+            {user_input}
+
+            Job Description:
+            {job_description}
+        """)
     ])
 
     return {"result":response.content}

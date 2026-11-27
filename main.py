@@ -1,10 +1,14 @@
 from proposal_agent import app
 
-user_input = input("Enter your query: ")
+job_description = input("Enter job details: ")
 
+user_input = "Please help me to make proposal for the given details."
 
 while user_input != "exit":
-    result = app.invoke({"query":user_input})
+    result = app.invoke({
+        "job_description":job_description, 
+        "user_input":user_input,
+    })
     print("ai: ",result["result"])
     user_input = input("you: ")
 
