@@ -12,32 +12,6 @@ class AgentState(TypedDict):
 
 graph = StateGraph(AgentState)
 
-EXAMPLES = [
-    {
-        "project": """
-            We are looking for a Flutter developer to build a ride-sharing
-            application with a FastAPI backend.
-        """,
-        "user_profile": """
-            3 years Flutter experience.
-            2 years FastAPI experience.
-            Previously worked on a ride-booking application.
-        """,
-        "proposal": """
-            Hi,
-
-            I have strong experience with Flutter and FastAPI, and I've
-            previously worked on a ride-booking application.
-
-            I can help build the required mobile experience and integrate
-            it with a scalable FastAPI backend.
-
-            I'd be happy to discuss the project and understand the
-            requirements in more detail.
-        """
-    }
-]
-
 system_prompt = SystemMessage(
     content=f"""
                 
