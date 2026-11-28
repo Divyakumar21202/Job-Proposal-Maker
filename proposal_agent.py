@@ -1,11 +1,13 @@
 from langgraph.graph import StateGraph,START,END
 from typing import TypedDict
+
 from langchain_core.messages import SystemMessage
 
 from llms import llm_open_ai as llm
 
 class AgentState(TypedDict):
     job_description:str
+    user_profile:str
     user_input:str
     result:str
 
@@ -52,6 +54,7 @@ def proposal_maker(state:AgentState):
     "This node is used for making proposal according to given user query."
     user_input = state['user_input']
     job_description = state['job_description']
+    user_profile = state['user_profile']
 
     response = llm.invoke([
         system_prompt,
@@ -59,6 +62,9 @@ def proposal_maker(state:AgentState):
             User Input:
             {user_input}
 
+            User Profile:
+            {user_profile}
+            
             Job Description:
             {job_description}
         """)
