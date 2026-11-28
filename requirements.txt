@@ -1,0 +1,4 @@
+langgraph
+langchain-community[pypdf]
+langchain_openai
+pypdf
